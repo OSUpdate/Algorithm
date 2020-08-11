@@ -1,19 +1,33 @@
 import sys
+maxtotal = 0
+def path(arr,pre,inp,vis,i):
+    if i == 11:
+        ans=list(map(int,pre.split()))
+        global maxtotal
+        total = 0
+        for a,b in enumerate(ans):
+            total += inp[a][b]
+        if maxtotal < total:
+            maxtotal = total
+        return 
+    for j,v in enumerate(arr[i]):
+        if not vis[v]:
+            vis[v] = True
+            tmp = pre+str(v)+ " "
+            path(arr,tmp,inp,vis,i+1)
+            vis[v] = False
 
 c = int(sys.stdin.readline())
 
-res = []
 for i in range(c):
     inp = []
-    ans = [[0 for t in range(11)]for row in range(c)]
+    ans=[]
+    player = [[] for t in range(11)]
+    vis = [False]*11
     for j in range(11):
         arr = list(map(int,sys.stdin.readline().split()))
         inp.append(arr)
-    for a in range(11):
-        temp = []
-        for b in range(11):
-            temp.append(inp[a][b])
-        ans[i][a] = max(temp)
-    res.append(sum(ans[i]))
-print(max(res))
-
+        player[j] = [i for i, v in enumerate(arr) if v>0]
+    path(player,"",inp,vis,0)
+    print(maxtotal)
+    maxtotal = 0
