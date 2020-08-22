@@ -10,12 +10,12 @@ for i,v in enumerate(n):
     elif rev == v:
         cnt[1] += 1
         rev -= 1
-       
     else:
-        ans = "mixed"
         break
 if cnt[0] == 8:
     ans = "ascending"
-if cnt[1] == 8:
+elif cnt[1] == 8:
     ans = "descending"
+else:
+    ans = "mixed"
 print(ans)
