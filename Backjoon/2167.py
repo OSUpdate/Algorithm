@@ -1,5 +1,5 @@
 import sys
-
+import copy 
 n,m = map(int,sys.stdin.readline().split())
 arr = []
 loc = []
@@ -10,11 +10,31 @@ k = int(sys.stdin.readline())
 
 for i in range(k):
     loc.append(list(map(int,sys.stdin.readline().split())))
-
-for c,rf in enumerate(loc):
-    ans = 0
-    print(rf,arr[0][1])
-    for i in range(rf[0]-1,rf[2]):
-        for j in range(rf[1]-1,rf[3]):
-            ans += arr[i][j]
-    print(ans)
+tmp = copy.deepcopy(arr)
+for i,v in enumerate(arr):
+    for j in range(m-1):
+        arr[i][j+1] += arr[i][j]
+for i in range(m):
+    for j in range(n-1):
+        arr[j+1][i] += arr[j][i]
+for i in loc:
+    if i[0] == i[2] and i[1] == i[3]:
+        ans = tmp[i[0]-1][i[1]-1]
+        print(ans)
+        continue
+    if i[0] == 1 and i[1] == 1:
+        ans = arr[i[2]-1][i[3]-1]
+        print(ans)
+        continue
+    if i[0] != 1 and i[1] == 1:
+        ans = arr[i[2]-1][i[3]-1] - arr[i[0]-2][i[3]-1]
+        print(ans)
+        continue
+    if i[0] == 1 and i[1] != 1:
+        ans = arr[i[2]-1][i[3]-1] - arr[i[2]-1][i[1]-2]
+        print(ans)
+        continue
+    if i[0] != 1 and i[1] != 1:
+        ans = arr[i[2]-1][i[3]-1] - arr[i[2]-1][i[1]-2] - arr[i[0]-2][i[3]-1] + arr[i[0]-2][i[1]-2]
+        print(ans)
+        continue

@@ -1,21 +1,8 @@
-import sys
-
-n = list(map(int,sys.stdin.readline().split()))
-ans = ""
-rev = 8
-cnt = [0,0]
-for i,v in enumerate(n):
-    if i+1 == v:
-        cnt[0] += 1
-    elif rev == v:
-        cnt[1] += 1
-        rev -= 1
-       
-    else:
-        ans = "mixed"
-        break
-if cnt[0] == 8:
-    ans = "ascending"
-if cnt[1] == 8:
-    ans = "descending"
-print(ans)
+if i[0] != 1 and i[1] == 1:
+        ans = arr[i[2]-1][i[3]-1] - arr[i[0]-2][i[3]-1]
+        print(ans)
+        continue
+    if i[0] == 1 and i[1] != 1:
+        ans = arr[i[2]-1][i[3]-1] - arr[i[2]-1][i[1]-2]
+        print(ans)
+        continue
