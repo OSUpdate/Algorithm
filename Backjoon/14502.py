@@ -24,7 +24,10 @@ def wall(cnt,startW):
         zero = 0
         for v in temp:
             zero += v.count(0)
-
+        if zero == 6:
+            for e in temp:
+                print(e)
+            print(starts)
         ans=max(ans,zero)
         return
     else:
@@ -47,9 +50,11 @@ cnt = 0
 for i in range(n):
     tmp = list(map(int, sys.stdin.readline().split()))
     arr.append(tmp)
-    if 2 in tmp:
-        j = tmp.index(2)
-        starts.append((i,j))
+for i,v1 in enumerate(arr):
+    for j,v2 in enumerate(v1):
+        if v2 == 2:
+            starts.append((i,j))
+
 
 for i in range(n*m):
     r = i // m
@@ -60,22 +65,3 @@ for i in range(n*m):
         wall(1,i)
         wallMap[r][c] = 0
 print(ans)
-'''
-            for start in starts:
-                tmp = copy.deepcopy(arr)
-                print(tmp)
-                q.append(start)
-                while len(q) != 0:
-                    x,y = q.pop()
-                    for dir in direct:
-                        next_x,next_y = dir
-                        next_x += x
-                        next_y += y
-                        if IsInside(next_x,next_y,n,m) and tmp[next_x][next_y] == 0:
-                            tmp[next_x][next_y] = 2
-                            q.append((next_x,next_y))
-                        
-                for t in tmp:
-                    print(t)
-                    print("\n")
-        '''
