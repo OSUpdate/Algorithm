@@ -8,5 +8,6 @@ for i in range(m,n+1):
         ans.append(i)
 if ans:
     print(sum(ans))
+    print(min(ans))
 else:
     print(-1)
