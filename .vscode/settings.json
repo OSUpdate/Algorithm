@@ -1,0 +1,17 @@
+{
+    "C_Cpp.errorSquiggles": "Disabled",
+    "C_Cpp.intelliSenseEngine": "Tag Parser",
+    "files.associations": {
+        "vector": "cpp",
+        "iosfwd": "cpp",
+        "iterator": "cpp",
+        "utility": "cpp",
+        "chrono": "cpp",
+        "__bit_reference": "cpp",
+        "__string": "cpp",
+        "algorithm": "cpp",
+        "deque": "cpp",
+        "string": "cpp",
+        "string_view": "cpp"
+    }
+}
