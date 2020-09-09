@@ -37,17 +37,19 @@ def bfs():
             if arr[nbx][nby] == 'O':
                 continue
             if arr[nrx][nry] == 'O':
-                print(ans)
+                print(1)
                 return
             if nrx == nbx and nry == nby:
                 if rc > bc:
-                    nrx, nry = nrx-d[0], nry-d[1]
+                    nrx -= d[0]
+                    nry -= d[1]
                 else:
-                    nbx, nby = nbx-d[0], nby-d[1]
+                    nbx -= d[0]
+                    nby -= d[1]
             if not visit[nrx][nry][nbx][nby]:
                 visit[nrx][nry][nbx][nby] = True
                 q.append((nrx, nry, nbx, nby, ans+1))
-    print(-1)
+    print(0)
 
 bfs()
 
