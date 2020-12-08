@@ -33,9 +33,8 @@ def Kmst():
         v1 = getParent(parent,u-1)
         v2 = getParent(parent,v-1)
         if v1 != v2:
-            union(parent,u-1,v-1)
+            union(parent,v1,v2)
             minimum += w
     return minimum
 print(Kmst())
 
-print(rank)
