@@ -27,6 +27,7 @@ def find(answer,cur,end):
                 find(answer + str(i),cur+1,end)
                 visit[i] = False
 find(answer,0,n+1)
+<<<<<<< HEAD
 print(tmp)
 '''
 for i in range(0,10):
@@ -47,3 +48,7 @@ for i in range(0,10):
     print(answer)
 '''
 
+=======
+print(tmp[-1])
+print(tmp[0])
+>>>>>>> 7f6ccc3c1851cb2367899ce36e72f9db9a74f802
