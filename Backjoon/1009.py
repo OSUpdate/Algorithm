@@ -10,5 +10,4 @@ for i in range(t):
     if a == 0:
         print(10)
     else:
-        print(b%4,'11')
         print(answer[a][b%4 -1])

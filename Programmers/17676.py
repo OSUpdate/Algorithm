@@ -4,14 +4,14 @@ def solution(lines):
     answer = 0
     sDate , sTime, sT = lines[0].split()
     print(sDate+" "+sTime)
-    start = datetime.datetime.strptime(sDate+" "+sTime,"%Y-%m-%d %H:%M:%S.%f")
-    print(start)
+    first = datetime.datetime.strptime(sDate+" "+sTime,"%Y-%m-%d %H:%M:%S.%f")
     for line in lines:
         d,s,t = line.split()
         data = datetime.datetime.strptime(d+" "+s,"%Y-%m-%d %H:%M:%S.%f")
         t = t[:-1]
         sec, mile = t.split('.')
-        print(data.strftime("%Y-%m-%d %H:%M:%S.%f"), data- datetime.timedelta(seconds=int(sec),microseconds=int(mile)))
+        start = data- datetime.timedelta(seconds=int(sec),microseconds=int(mile))
+        print(data.strftime("%Y-%m-%d %H:%M:%S.%f"), )
         print(s,t)
     return answer
 
