@@ -35,12 +35,12 @@ while True:
         else:
             cur -= 1
             if cur < 0:
-                cur = 4
+                cur = 3
         if size < L-1:
             size += 1
     cury,curx = dir[cur]
     ny,nx  = fy+cury, fx+curx
-    if not (0<=nx<n and 0<=ny<n):
+    if nx < 0 or nx >= n or ny < 0 or ny >= n:
         sec+=1
         break
     if arr[ny][nx] == 2:
