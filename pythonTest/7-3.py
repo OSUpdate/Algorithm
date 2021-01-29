@@ -19,5 +19,5 @@ def bfind(find,start,end):
     else:
         return bfind(find,mid+1,end)
 
-for i in range(n):
+for i in range(maximum):
     tmp += (lengths[i] - h)

@@ -24,6 +24,6 @@ while q:
     for i in graph[cur]:
         res[i] = max(res[i],res[cur]+times[i])
         indegree[i] -= 1
-        if indegree == 0:
+        if indegree[i] == 0:
             q.append(i)
 print(res)

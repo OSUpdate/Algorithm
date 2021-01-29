@@ -13,3 +13,4 @@ for i in range(1,len(s)-1):
     else:
         one += 1
 print(min(zero,one))
+enumerate
